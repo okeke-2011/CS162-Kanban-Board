@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block body %}
+
+    <h3>This is {{name}}'s Homepage</h3>
+    <h5>Flat 4 Roommates</h5>
+    <ul>
+        {% for x in roommates %}
+            {% if x == name %}
+                <li><p>{{x}} (the GOAT of the room)</p></li>
+            {% else %}
+                <li><p>{{x}}</p></li>
+                {% endif %}
+            {% endfor %}
+    </ul>
+{% endblock %}
