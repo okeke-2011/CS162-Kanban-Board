@@ -1,0 +1,12 @@
+<!--Shows all DB entries-->
+{% extends "base.html" %}
+{% block title %}Users DB{% endblock %}
+{% block body %}
+    {% for user in all_users %}
+        <p>USER_ID: {{user.user_id}}, NAME: {{user.user_name}}, PASSWORD: {{user.password}}</p>
+    {% endfor %}
+    <br>
+    {% for task in all_tasks %}
+        <p>TASK_ID: {{task.task_id}}, USER_ID: {{task.user_id}}, TASK_TYPE: {{task.task_type}} TASK_DESCRIPTION: {{task.task_description}}</p>
+    {% endfor %}
+{% endblock %}

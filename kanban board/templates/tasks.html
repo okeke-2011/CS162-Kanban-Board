@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}Tasks{% endblock %}
+{% block style %}
+    <!--Style for the tasks page-->
+    body{
+        display: flex !important;
+        align-items: center !important;
+    }
+    .main-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 80%;
+        border: 1px solid black;
+        height: 600px;
+        background-color: #e6e6e6;
+        border-radius: 15px;
+    }
+    .sub-main{
+        position: relative;
+        display: inline;
+        float: left;
+        height: 100%;
+        overflow: scroll;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-headers{
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+    .check{
+        display: flex;
+        height: 100%;
+    }
+    .sub-main ul{
+        list-style: none;
+    }
+
+{% endblock %}
+{% block body %}
+
+    <div class="main-div">
+        <div class="nav-headers">
+            <div class="headers">
+                <h3>To Do</h3>
+                <form action="#" method="post">
+                    <p>Add new task<br>
+                        <input type="text" placeholder="Enter Task" name="add_todo">
+                        <input type="submit" value="submit">
+                    </p>
+                </form>
+            </div>
+
+            <div class="headers">
+                <h3>Doing</h3>
+                <form action="#" method="post">
+                    <p>Move task to doing<br>
+                        <input type="text" placeholder="Enter Task" name="add_doing">
+                        <input type="submit" value="submit">
+                    </p>
+                </form>
+            </div>
+
+            <div class="headers">
+                <h3>Done</h3>
+                <form action="#" method="post">
+                    <p>Mark task as done<br>
+                        <input type="text" placeholder="Enter Task" name="add_done">
+                        <input type="submit" value="submit">
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div class="check">
+            <div class="sub-main">
+
+                <ul>
+                    {% for task in todo %}
+                        <li>{{task.task_description}}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+            <div class="sub-main">
+
+                <ul>
+                    {% for task in doing %}
+                        <li>{{task.task_description}}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+            <div class="sub-main">
+                <ul>
+                    {% for task in done %}
+                        <li>{{task.task_description}}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+    <h4>Delete Task:</h4>
+    <form action="#" method="post">
+        <p>
+            <input type="text" placeholder="Enter Task" name="delete">
+            <input type="submit" value="submit">
+        </p>
+    </form>
+
+{% endblock %}
